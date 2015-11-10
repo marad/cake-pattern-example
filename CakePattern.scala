@@ -20,7 +20,7 @@ trait BakeryComponent {
 
 // Component implementations
 trait RegularMillComponent extends MillComponent {
-  def mill: Mill = new RegularMill
+  val mill: Mill = new RegularMill
 
   class RegularMill extends Mill {
     def produceFlour() = Flour()
@@ -30,7 +30,7 @@ trait RegularMillComponent extends MillComponent {
 trait RegularBakeryComponent extends BakeryComponent {
   this: MillComponent =>
 
-  def bakery: Bakery = new RegularBakery
+  val bakery: Bakery = new RegularBakery
 
   class RegularBakery extends Bakery {
     def bakeBread() = Bread(mill.produceFlour())
